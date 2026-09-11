@@ -1,0 +1,30 @@
+{
+  "name": "@tiagopedras/work-streams",
+  "version": "0.1.0",
+  "description": "The work-item model shared by the to-do board, the night agent and the improvements agent. Six states, two container encodings, one manifest per stream. Vanilla JS, no build step, no dependency.",
+  "license": "UNLICENSED",
+  "main": "interface/item.js",
+  "browser": "interface/item.js",
+  "style": "interface/streams.css",
+  "exports": {
+    ".": "./interface/item.js",
+    "./item.js": "./interface/item.js",
+    "./lanes.js": "./interface/lanes.js",
+    "./card.js": "./interface/card.js",
+    "./board.js": "./interface/board.js",
+    "./doclist.js": "./interface/doclist.js",
+    "./streams.js": "./interface/streams.js",
+    "./streams.css": "./interface/streams.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "interface",
+    "containers",
+    "item.py",
+    "streams.py",
+    "writer.py",
+    "CONTRACT.md",
+    "README.md"
+  ],
+  "engines": { "node": ">=18" }
+}
