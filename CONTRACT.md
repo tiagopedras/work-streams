@@ -37,7 +37,7 @@ anything else it carries rides along untouched.
 | `owner` | `me`, or an agent's name | who is expected to move it next |
 | `seen` | boolean | has the person it is waiting on looked at it |
 | `needs_you` | boolean | must an unattended agent leave this alone |
-| `resolution` | `actioned`, `superseded`, `dropped` | how it ended, only when `done` |
+| `resolution` | `actioned`, `completed`, `superseded`, `dropped` | how it ended, only when `done` |
 | `feedback` | one line, at most 500 characters | what was wrong with it, addressed to whoever does it next |
 | `created` | ISO date, or datetime to the second | when it was written |
 | `group`, `lane` | string | which part of the stream it sits in |
