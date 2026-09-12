@@ -20,12 +20,19 @@
 
 const WS_CONTRACT = '1.0';
 
-/* The six, in the order a board draws them. Nothing may add a seventh without
+/* The seven, in the order a board draws them. Nothing may add an eighth without
    changing the contract, which is the point of naming them in one place: an
-   agent that wants a state of its own wants `owner` instead. */
-const WS_CANONICAL = ['backlog', 'ready', 'doing', 'blocked', 'review', 'done'];
+   agent that wants a state of its own wants `owner` instead.
 
-/* Which of the six mean a person has to look. The one question every reader
+   `accepted` arrived on 12 Sep 2026, the one addition the contract has taken.
+   It is the gap between a person approving an item and the work it describes
+   being finished — a plan he has agreed sits there while the run it minted is
+   still going. That gap was `done` until now, which made "I have accepted
+   this" and "this is finished" one state, and they are two different
+   answers. */
+const WS_CANONICAL = ['backlog', 'ready', 'doing', 'blocked', 'review', 'accepted', 'done'];
+
+/* Which of the seven mean a person has to look. The one question every reader
    asks, and no stream should answer it differently. */
 const WS_WAITING_ON_A_PERSON = ['review'];
 
@@ -50,7 +57,7 @@ function wsValidate(m){
 
   const states = m.states || {};
   for (const k of Object.keys(states))
-    if (!WS_CANONICAL.includes(k)) e.push(`"${k}" is not one of the six states (${WS_CANONICAL.join(', ')})`);
+    if (!WS_CANONICAL.includes(k)) e.push(`"${k}" is not one of the seven states (${WS_CANONICAL.join(', ')})`);
   const labels = Object.values(states);
   if (labels.length !== new Set(labels).size)
     e.push('two states share a label, so one cannot be told from the other');

@@ -33,7 +33,7 @@ anything else it carries rides along untouched.
 | --- | --- | --- |
 | `id` | 6 characters of base36 | which item is this, across a rename |
 | `title` | string | what it is called |
-| `state` | one of the six below | where it has got to |
+| `state` | one of the seven below | where it has got to |
 | `owner` | `me`, or an agent's name | who is expected to move it next |
 | `seen` | boolean | has the person it is waiting on looked at it |
 | `needs_you` | boolean | must an unattended agent leave this alone |
@@ -55,7 +55,7 @@ file. It flattens whitespace before hashing, because reflowing a paragraph is
 not a change of mind, and it excludes `id` and `created`, because minting an id
 is not an edit.
 
-## The six states
+## The seven states
 
 | State | Means |
 | --- | --- |
@@ -64,9 +64,20 @@ is not an edit.
 | `doing` | in flight |
 | `review` | the work is done and needs a verdict from a person |
 | `blocked` | cannot move until something else changes |
+| `accepted` | a person has approved it; the work it describes has not finished |
 | `done` | closed, with `resolution` saying how |
 
-A stream declares which of the six it uses and its own word for each. "Waiting
+`accepted` is the one state this contract has added since it was written, on
+12 Sep 2026, and it is worth saying why it earned the exception the section
+below otherwise refuses. It is the gap between approving an item and the work
+it describes being finished. A plan he has agreed to sits in that gap while the
+run it minted is still going: he is done with it, the work is not. Until now
+both were `done`, which made "I have accepted this" and "this is finished" one
+answer, and a board had no way to draw them as the two columns they are. The
+test for an eighth is the same one this passed: two questions a reader asks
+separately, with nothing but a state able to tell them apart.
+
+A stream declares which of the seven it uses and its own word for each. "Waiting
 review", "Inbox" and "a branch waiting for you" are one state with three labels.
 
 Two things this deliberately does not do.
@@ -74,8 +85,8 @@ Two things this deliberately does not do.
 **It does not have a state per agent.** An item an agent may pick up is `ready`,
 whichever agent that is, and `owner` says which. A plan agreed for the acting
 agent and a plan sent back to be written again are both `ready`, owned by
-different agents. Giving each its own state would mean a seventh the day a third
-agent arrives, and an eighth after that.
+different agents. Giving each its own state would mean an eighth the day a third
+agent arrives, and a ninth after that.
 
 **It does not carry a separate flag for having been approved.** A single-valued
 `state` is what stops an item being agreed and rejected at once, which means

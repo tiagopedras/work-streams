@@ -7,6 +7,7 @@
     "doing",
     "blocked",
     "review",
+    "accepted",
     "done"
   ],
   "waitingOnAPerson": [
@@ -273,6 +274,7 @@
         "doing": "Doing",
         "blocked": "Blocked",
         "review": "Waiting review",
+        "accepted": "accepted",
         "done": "Done"
       },
       "roundTrip": {
@@ -296,6 +298,7 @@
         "doing": false,
         "blocked": false,
         "review": true,
+        "accepted": false,
         "done": false
       }
     },
@@ -327,10 +330,10 @@
         },
         "states": {
           "backlog": "Backlog",
-          "ready": "Queue",
-          "doing": "Running",
-          "review": "Inbox",
-          "done": "Decided"
+          "ready": "To do",
+          "doing": "Doing",
+          "review": "Waiting for review",
+          "done": "Done"
         },
         "owners": [
           "me",
@@ -338,10 +341,11 @@
           "execution-agent"
         ],
         "hints": {
-          "Backlog": "held back, or excluded by a rule",
-          "Queue": "what tonight would plan, in order",
-          "Inbox": "waiting on a verdict from you",
-          "Decided": "you have ruled on it"
+          "Backlog": "leave it alone; held back by you, or excluded by a rule",
+          "To do": "plan it tonight, in this order",
+          "Doing": "an agent has it right now",
+          "Waiting for review": "the agent wrote one; it is waiting on you",
+          "Done": "accepted as written, and the acting agent's half starts"
         },
         "fields": [
           {
@@ -399,7 +403,45 @@
         },
         "views": [
           "plans"
-        ]
+        ],
+        "legacy": {
+          "key": "status",
+          "note": "the five words this stream used until 11 Sep 2026, and what each becomes. agreed and redo are both ready: an agent may pick either up, and owner says which.",
+          "map": {
+            "unread": {
+              "state": "review",
+              "owner": "me",
+              "seen": false
+            },
+            "read": {
+              "state": "review",
+              "owner": "me",
+              "seen": true
+            },
+            "agreed": {
+              "state": "ready",
+              "owner": "execution-agent",
+              "seen": true
+            },
+            "redo": {
+              "state": "ready",
+              "owner": "night-agent",
+              "seen": true
+            },
+            "actioned": {
+              "state": "done",
+              "owner": "me",
+              "seen": true,
+              "resolution": "actioned"
+            }
+          },
+          "fields": {
+            "outcome: folded": "needs_you",
+            "redo_note": "feedback",
+            "generated": "created",
+            "bucket": "group"
+          }
+        }
       },
       "errors": [],
       "lanes": [
@@ -409,61 +451,62 @@
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": "held back, or excluded by a rule"
+          "hint": "leave it alone; held back by you, or excluded by a rule"
         },
         {
-          "lane": "Queue",
+          "lane": "To do",
           "state": "ready",
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": "what tonight would plan, in order"
+          "hint": "plan it tonight, in this order"
         },
         {
-          "lane": "Running",
+          "lane": "Doing",
           "state": "doing",
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": ""
+          "hint": "an agent has it right now"
         },
         {
-          "lane": "Inbox",
+          "lane": "Waiting for review",
           "state": "review",
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": "waiting on a verdict from you"
+          "hint": "the agent wrote one; it is waiting on you"
         },
         {
-          "lane": "Decided",
+          "lane": "Done",
           "state": "done",
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": "you have ruled on it"
+          "hint": "accepted as written, and the acting agent's half starts"
         }
       ],
       "ownsItsFile": false,
       "labels": {
         "backlog": "Backlog",
-        "ready": "Queue",
-        "doing": "Running",
+        "ready": "To do",
+        "doing": "Doing",
         "blocked": "blocked",
-        "review": "Inbox",
-        "done": "Decided"
+        "review": "Waiting for review",
+        "accepted": "accepted",
+        "done": "Done"
       },
       "roundTrip": {
         "Backlog": "backlog",
-        "Queue": "ready",
-        "Running": "doing",
-        "Inbox": "review",
-        "Decided": "done"
+        "To do": "ready",
+        "Doing": "doing",
+        "Waiting for review": "review",
+        "Done": "done"
       },
       "lenient": {
         "waiting review": null,
-        "  To  Do  ": null,
-        "INBOX": "review",
+        "  To  Do  ": "ready",
+        "INBOX": null,
         "nothing like it": null,
         "": null
       },
@@ -473,6 +516,7 @@
         "doing": false,
         "blocked": false,
         "review": true,
+        "accepted": false,
         "done": false
       }
     }
@@ -1209,7 +1253,7 @@
         "container.path is missing"
       ]
     },
-    "seventh state": {
+    "eighth state": {
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
@@ -1390,7 +1434,7 @@
         ]
       },
       "errors": [
-        "\"parked\" is not one of the six states (backlog, ready, doing, blocked, review, done)"
+        "\"parked\" is not one of the seven states (backlog, ready, doing, blocked, review, accepted, done)"
       ]
     },
     "two states one label": {

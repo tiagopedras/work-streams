@@ -32,7 +32,7 @@ const broken = {
   'no id':               { ...real.tasks, id: '' },
   'unknown container':   { ...real.tasks, container: { kind: 'sqlite', path: 'x.db' } },
   'container no path':   { ...real.tasks, container: { kind: 'list-file' } },
-  'seventh state':       { ...real.tasks, states: { ...real.tasks.states, parked: 'Parked' } },
+  'eighth state':        { ...real.tasks, states: { ...real.tasks.states, parked: 'Parked' } },
   'two states one label':{ ...real.tasks, states: { ...real.tasks.states, doing: 'Backlog' } },
   'no done':             { ...real.tasks, states: { backlog: 'Backlog', ready: 'To do' } },
   'unknown writer':      { ...real.tasks, writer: { who: 'board', how: { kind: 'ftp' } } },

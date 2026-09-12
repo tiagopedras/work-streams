@@ -14,10 +14,16 @@ import os
 
 CONTRACT = "1.0"
 
-# The six, in the order a board draws them. Nothing may add a seventh without
+# The seven, in the order a board draws them. Nothing may add an eighth without
 # changing the contract, which is the point of naming them in one place: an
 # agent that wants its own state wants `owner` instead.
-CANONICAL = ("backlog", "ready", "doing", "blocked", "review", "done")
+#
+# `accepted` arrived on 12 Sep 2026, the one addition the contract has taken.
+# It is the gap between a person approving an item and the work it describes
+# being finished — a plan he has agreed sits there while the run it minted is
+# still going. That gap was `done` until now, which made "I have accepted this"
+# and "this is finished" one state, and they are two different answers.
+CANONICAL = ("backlog", "ready", "doing", "blocked", "review", "accepted", "done")
 
 # Which of the six mean "a person has to look at this". The one question every
 # reader asks and no stream should answer differently.
@@ -93,7 +99,7 @@ def validate(m):
     states = m.get("states") or {}
     for k in states:
         if k not in CANONICAL:
-            e.append("%s is not one of the six states (%s)" % (json.dumps(k), ", ".join(CANONICAL)))
+            e.append("%s is not one of the seven states (%s)" % (json.dumps(k), ", ".join(CANONICAL)))
     labels = [v for v in states.values()]
     if len(labels) != len(set(labels)):
         e.append("two states share a label, so one cannot be told from the other")
