@@ -14,7 +14,7 @@ streams. Every `IMPROVEMENTS.md` under `~/Code` is the third, and the improve
 agent is its writer.
 
 Before touching anything, take the backups. Every `IMPROVEMENTS.md` under
-`~/Code`, and the whole of `improve_agent/state/`, hashed, somewhere outside any
+`~/Code`, and the whole of `improve-agent/state/`, hashed, somewhere outside any
 gitignored folder. There is a worked example at
 `~/Backups/to-dos/2026-09-11-pre-work-streams/`, including its README, which is
 the shape to copy.
@@ -64,7 +64,7 @@ than discovering it.
 
 ## What changes in the agent
 
-`improve_agent` becomes its own writer under the contract's `subprocess` kind,
+`improve-agent` becomes its own writer under the contract's `subprocess` kind,
 the same as the night agent. That means one `stream.json` per repo in
 `registry.json`, and `improve/stream.py --apply` wrapping the existing
 `reader.strike()` at `improve/reader.py:298`.

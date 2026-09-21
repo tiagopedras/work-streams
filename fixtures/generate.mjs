@@ -21,7 +21,7 @@ const ctx = loadManifest()
 
 const real = {
   tasks: JSON.parse(readFileSync('/Users/tiagopedras/Code/to-dos/stream.json', 'utf8')),
-  plans: JSON.parse(readFileSync('/Users/tiagopedras/Code/to-dos/agents/planning_agent/stream.json', 'utf8'))
+  plans: JSON.parse(readFileSync('/Users/tiagopedras/Code/to-dos/agents/plan-agent/stream.json', 'utf8'))
 }
 
 /* Manifests that are wrong on purpose. Each names one mistake somebody will
