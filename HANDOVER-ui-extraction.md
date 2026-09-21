@@ -110,7 +110,7 @@ because move 4 is where the answer would land.
 Eleven suites green: `core/test_todo.{py,mjs}`,
 `agents/night_agent/test_night_agent.py`, `companion/test_companion.py`,
 `kanban/test_{plans,schedule,projects,notes}.mjs`,
-`PACKAGES/work_streams/test_streams.{py,mjs}`, `improve-agent/test_improve.py`.
+`PACKAGES/work-streams/test_streams.{py,mjs}`, `improve-agent/test_improve.py`.
 
 `kanban/test_canvas.mjs` was already failing before that session started, on
 committed code. It is not related to any of this, and a separate session is on

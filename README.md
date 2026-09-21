@@ -1,4 +1,4 @@
-# work_streams
+# work-streams
 
 The work-item model, and the pieces every reader and writer of one shares.
 [CONTRACT.md](CONTRACT.md) is the authority. Read it first, and read it before

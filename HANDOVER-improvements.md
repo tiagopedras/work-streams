@@ -86,7 +86,7 @@ is a change to both.
 ## Before starting, check this is still worth doing
 
 `~/Code/CLAUDE.md` says a package earns its place in `PACKAGES/` when a third
-app shares it. Until this stage happens, `work_streams` has two consumers and
+app shares it. Until this stage happens, `work-streams` has two consumers and
 both are inside `to-dos`, which by that rule means it should have stayed in
 `to-dos/core/`.
 
