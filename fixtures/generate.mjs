@@ -103,6 +103,7 @@ const out = {
   writers: ctx.WS_WRITERS,
   eventKinds: ctx.WS_EVENT_KINDS,
   callDid: ctx.WS_CALL_DID,
+  handoverLevels: ctx.WS_HANDOVER_LEVELS,
   streams: Object.fromEntries(Object.entries(real).map(([k, m]) => [k, { manifest: m, ...resolve(m) }])),
   /* Input and expected output together, so the other language can be shown the
      identical manifest rather than building its own approximation of it. */

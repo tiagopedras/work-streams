@@ -248,6 +248,27 @@ lines, one `write` each and well under the size an append lands in one piece,
 so two writers at once give two lines rather than a torn one. Nothing reads the
 history back to decide what to do next; it is a record for a person.
 
+## Handover level
+
+How much of an agent's work waits on a person is set per agent, and there are
+three answers:
+
+| Level | Means |
+| --- | --- |
+| `off` | the agent is offered nothing and takes nothing |
+| `plan-first` | its plan goes to `review`, and the work waits until a person approves it |
+| `just-do-it` | its plan is approved on arrival and the work goes ahead; the output still goes to `review` |
+
+`just-do-it` never skips the review of the work, only the review of the plan,
+and the plan is kept where it would have been read. A plan that stops to ask
+the person something (`needs_you`) waits for them whatever the level. An agent
+with no plan stage of its own has only `just-do-it` and `off`.
+
+The level is read when an item is handed over and written onto the item there,
+so changing an agent's level later leaves the items it already has as they
+were. Where a stream keeps the setting is its own business; the three words
+are this contract's.
+
 ## Refusing
 
 A stream that cannot perform a transition says so and changes nothing. A stream

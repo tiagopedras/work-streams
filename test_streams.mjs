@@ -39,6 +39,7 @@ check('the six states, in order', ws.WS_CANONICAL, FIX.canonical)
 check('which states wait on a person', ws.WS_WAITING_ON_A_PERSON, FIX.waitingOnAPerson)
 check('container kinds', ws.WS_CONTAINERS, FIX.containers)
 check('writer kinds', ws.WS_WRITERS, FIX.writers)
+check('handover levels', ws.WS_HANDOVER_LEVELS, FIX.handoverLevels)
 
 /* Not from the fixture: the one rule the table cannot state about itself. */
 check('no state is listed twice', ws.WS_CANONICAL.length, new Set(ws.WS_CANONICAL).size)

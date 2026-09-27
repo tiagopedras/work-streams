@@ -29,6 +29,11 @@
     "view",
     "work"
   ],
+  "handoverLevels": [
+    "off",
+    "plan-first",
+    "just-do-it"
+  ],
   "streams": {
     "tasks": {
       "manifest": {

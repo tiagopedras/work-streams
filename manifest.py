@@ -32,6 +32,9 @@ WAITING_ON_A_PERSON = ("review",)
 
 CONTAINERS = ("list-file", "doc-folder")
 WRITERS = ("http-put", "subprocess", "queue-file")
+# How much of an agent's work waits on a person. See "Handover level" in
+# CONTRACT.md.
+HANDOVER_LEVELS = ("off", "plan-first", "just-do-it")
 
 SKIP_DIRS = {"node_modules", ".git", "EXTERNAL", "TEMP", "__pycache__", "dist", "build"}
 MAX_DEPTH = 3

@@ -38,6 +38,9 @@ const WS_WAITING_ON_A_PERSON = ['review'];
 
 const WS_CONTAINERS = ['list-file', 'doc-folder'];
 const WS_WRITERS = ['http-put', 'subprocess', 'queue-file'];
+/* How much of an agent's work waits on a person. See "Handover level" in
+   CONTRACT.md. */
+const WS_HANDOVER_LEVELS = ['off', 'plan-first', 'just-do-it'];
 
 /* Everything wrong with a manifest, as lines meant to be read by a person.
    Returned rather than thrown, and all of them rather than the first, because

@@ -41,6 +41,7 @@ check("the six states, in order", list(manifest.CANONICAL), FIX["canonical"])
 check("which states wait on a person", list(manifest.WAITING_ON_A_PERSON), FIX["waitingOnAPerson"])
 check("container kinds", list(manifest.CONTAINERS), FIX["containers"])
 check("writer kinds", list(manifest.WRITERS), FIX["writers"])
+check("handover levels", list(manifest.HANDOVER_LEVELS), FIX["handoverLevels"])
 
 for name, row in FIX["streams"].items():
     m = row["manifest"]
