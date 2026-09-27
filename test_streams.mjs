@@ -71,6 +71,15 @@ console.log('\nmanifests that are wrong on purpose')
 for (const [name, row] of Object.entries(FIX.broken))
   check(`refuses ${name}, in the same words`, ws.wsValidate(row.manifest), row.errors)
 
+console.log('\nhistory events')
+check('event kinds', ws.WS_EVENT_KINDS, FIX.eventKinds)
+check('what a call did', ws.WS_CALL_DID, FIX.callDid)
+for (const [name, row] of Object.entries(FIX.events))
+  check(`${name}: ${row.errors.length ? 'refused, in the same words' : 'accepted'}`, ws.wsValidateEvent(row.event), row.errors)
+check('the two good events are accepted and every other one refused',
+  Object.entries(FIX.events).filter(([, r]) => !r.errors.length).map(([k]) => k),
+  ['a planner called in', 'a view from elsewhere'])
+
 /* A broken manifest that says nothing is the failure mode that matters, since
    it is indistinguishable from a good one. */
 console.log('\nand none of them passes quietly')

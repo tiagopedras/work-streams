@@ -10,6 +10,7 @@ right and this is a bug.
 """
 
 import json
+import re
 import os
 
 CONTRACT = "1.0"
@@ -203,3 +204,45 @@ def owns_its_file(m):
     kept true rather than merely asked for.
     """
     return ((m.get("writer") or {}).get("how") or {}).get("kind") == "http-put"
+
+
+# ---------------------------------------------------------------------------
+# An item's history
+#
+# What happened to one item, one event a line, appended and never rewritten.
+# See "An item's history" in CONTRACT.md. One kind today: a call, an owner
+# bringing a specialist in. A specialist never owns an item, so the one thing
+# checked beyond the shape is that `called` is never `by`.
+
+EVENT_KINDS = ("call",)
+# What a specialist brought in did: gave a view, or did part of the work.
+CALL_DID = ("view", "work")
+_ABOUT_RE = re.compile(r"^[a-z]+:[0-9a-z]{6}$")
+_AT_RE = re.compile(r"^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?)?$")
+
+
+def validate_event(ev):
+    """Everything wrong with one history event, as lines, in the same words as
+    wsValidateEvent. A reader skips an event that has any."""
+    if not isinstance(ev, dict):
+        return ["not an object"]
+    e = []
+    for key in ("at", "about", "by", "kind"):
+        if not ev.get(key):
+            e.append("missing %s" % json.dumps(key))
+    if ev.get("at") and not _AT_RE.match(str(ev["at"])):
+        e.append("at should be an ISO date or datetime, found %s" % json.dumps(ev["at"]))
+    if ev.get("about") and not _ABOUT_RE.match(str(ev["about"])):
+        e.append('about should be a typed reference like "task:ab12cd", found %s' % json.dumps(ev["about"]))
+    if ev.get("kind") and ev["kind"] not in EVENT_KINDS:
+        e.append("kind should be one of %s, found %s" % (", ".join(EVENT_KINDS), json.dumps(ev["kind"])))
+    if ev.get("kind") == "call":
+        if not ev.get("called"):
+            e.append("a call names nobody it called")
+        elif ev.get("called") == ev.get("by"):
+            e.append("an owner cannot call itself in as a specialist")
+        if ev.get("did") not in CALL_DID:
+            e.append("did should be one of %s, found %s" % (", ".join(CALL_DID), json.dumps(ev.get("did"))))
+    if ev.get("note") is not None and len(str(ev["note"])) > 500:
+        e.append("note is longer than 500 characters")
+    return e

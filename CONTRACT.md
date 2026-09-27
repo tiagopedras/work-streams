@@ -209,6 +209,45 @@ appended to a file the owner drains next time it loads. A request naming
 something the owner cannot resolve is written back rather than dropped, because
 the item it names may simply not exist yet.
 
+## An item's history
+
+`owner` says who moves an item next, and only an owner can. Some agents never
+own anything: a specialist is brought in by an owner to give a view or do part
+of the work, and hands the item back. Where it sits one per group, as the to-do
+list's bucket planners do, it is the group's by default and can still be called
+from another group when an item crosses two. It never appears as an `owner`, so
+the only record that it touched an item is the item's history.
+
+A history is a list of events about items, one JSON object a line, appended and
+never rewritten. The manifest names the file, beside the container rather than
+inside it, so writing one is never a write to the stream:
+
+```json
+"history": {"path": "data/<dataset>/history.jsonl"}
+```
+
+| Field | Type | What it answers |
+| --- | --- | --- |
+| `at` | ISO date, or datetime to the second | when it happened |
+| `about` | typed reference, `task:ab12cd` | which item |
+| `by` | `me`, or an agent's name | the owner who made the call |
+| `kind` | `call` | what happened; the only kind so far |
+| `called` | an agent's name | the specialist brought in, never the same as `by` |
+| `did` | `view` or `work` | whether it gave a view or did part of the work |
+| `bucket` | string | the specialist's own group, when that is worth saying |
+| `note` | one line, at most 500 characters | anything else |
+
+A reader draws "Plan agent asked the People planner" from that, in the stream's
+own words. `wsValidateEvent` and `validate_event` say what is wrong with one
+event in the same words, and a reader skips one that fails rather than drawing
+half of it.
+
+A history has more than one writer, which the rule below otherwise refuses. It
+is allowed here because nothing is ever overwritten: each writer appends whole
+lines, one `write` each and well under the size an append lands in one piece,
+so two writers at once give two lines rather than a torn one. Nothing reads the
+history back to decide what to do next; it is a record for a person.
+
 ## Refusing
 
 A stream that cannot perform a transition says so and changes nothing. A stream

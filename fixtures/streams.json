@@ -22,6 +22,13 @@
     "subprocess",
     "queue-file"
   ],
+  "eventKinds": [
+    "call"
+  ],
+  "callDid": [
+    "view",
+    "work"
+  ],
   "streams": {
     "tasks": {
       "manifest": {
@@ -47,40 +54,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -115,15 +106,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -229,31 +211,12 @@
           "hint": "current focus, next two weeks"
         },
         {
-          "lane": "Blocked",
-          "state": "blocked",
-          "synthetic": false,
-          "draggable": true,
-          "when": null,
-          "hint": "can't move until something changes"
-        },
-        {
-          "lane": "Waiting review",
+          "lane": "Reviewing",
           "state": "review",
           "synthetic": false,
           "draggable": true,
           "when": null,
-          "hint": "done, waiting on someone else"
-        },
-        {
-          "lane": "Handed to AI",
-          "state": null,
-          "synthetic": true,
-          "draggable": false,
-          "when": {
-            "field": "ai",
-            "is": "full"
-          },
-          "hint": "tagged ai:: full, not done yet"
+          "hint": "done, waiting for a look"
         },
         {
           "lane": "Done",
@@ -272,8 +235,8 @@
         "backlog": "Backlog",
         "ready": "To do",
         "doing": "Doing",
-        "blocked": "Blocked",
-        "review": "Waiting review",
+        "blocked": "blocked",
+        "review": "Reviewing",
         "accepted": "accepted",
         "done": "Done"
       },
@@ -281,12 +244,11 @@
         "Backlog": "backlog",
         "To do": "ready",
         "Doing": "doing",
-        "Blocked": "blocked",
-        "Waiting review": "review",
+        "Reviewing": "review",
         "Done": "done"
       },
       "lenient": {
-        "waiting review": "review",
+        "waiting review": null,
         "  To  Do  ": "ready",
         "INBOX": null,
         "nothing like it": null,
@@ -564,40 +526,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -632,15 +578,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -747,40 +684,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -815,15 +736,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -930,40 +842,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -998,15 +894,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -1112,40 +999,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -1180,15 +1051,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -1295,8 +1157,7 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done",
           "parked": "Parked"
         },
@@ -1304,32 +1165,17 @@
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -1364,15 +1210,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -1479,40 +1316,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Backlog",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -1547,15 +1368,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -1667,32 +1479,17 @@
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -1727,15 +1524,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -1817,7 +1605,7 @@
       "errors": [
         "no label for 'done'; every stream needs somewhere finished work goes",
         "reserved lane \"Doing\" is not a state label or a synthetic lane",
-        "reserved lane \"Waiting review\" is not a state label or a synthetic lane"
+        "reserved lane \"Reviewing\" is not a state label or a synthetic lane"
       ]
     },
     "unknown writer": {
@@ -1844,40 +1632,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -1912,15 +1684,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -2024,40 +1787,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -2092,15 +1839,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -2204,40 +1942,24 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -2272,15 +1994,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -2384,41 +2097,25 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done",
           "Parked"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
-          {
-            "lane": "Handed to AI",
-            "before": "done",
-            "draggable": false,
-            "when": {
-              "field": "ai",
-              "is": "full"
-            },
-            "note": "drawn from the ai tag, never a heading in the file"
-          },
           {
             "lane": "Done",
             "state": "done",
@@ -2453,15 +2150,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -2568,28 +2256,22 @@
           "backlog": "Backlog",
           "ready": "To do",
           "doing": "Doing",
-          "blocked": "Blocked",
-          "review": "Waiting review",
+          "review": "Reviewing",
           "done": "Done"
         },
         "reserved": [
           "Backlog",
           "To do",
           "Doing",
-          "Waiting review",
+          "Reviewing",
           "Done"
-        ],
-        "on_demand": [
-          "Blocked"
         ],
         "hints": {
           "Backlog": "no time pressure yet",
           "To do": "two to four weeks out",
           "Doing": "current focus, next two weeks",
-          "Blocked": "can't move until something changes",
-          "Waiting review": "done, waiting on someone else",
-          "Done": "ticked off",
-          "Handed to AI": "tagged ai:: full, not done yet"
+          "Reviewing": "done, waiting for a look",
+          "Done": "ticked off"
         },
         "synthetic": [
           {
@@ -2620,15 +2302,6 @@
             "key": "due",
             "syntax": "inline",
             "type": "date"
-          },
-          {
-            "key": "ai",
-            "syntax": "inline",
-            "values": [
-              "full",
-              "partial",
-              "none"
-            ]
           },
           {
             "key": "to",
@@ -2709,6 +2382,135 @@
       },
       "errors": [
         "synthetic lane \"Odd\" sits before \"nonsense\", which is not a state"
+      ]
+    }
+  },
+  "events": {
+    "a planner called in": {
+      "event": {
+        "at": "2026-09-27T02:14:09",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-people-agent",
+        "bucket": "people",
+        "did": "work"
+      },
+      "errors": []
+    },
+    "a view from elsewhere": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-ds-agent",
+        "did": "view",
+        "note": "crosses into DS"
+      },
+      "errors": []
+    },
+    "not an object": {
+      "event": "Plan agent asked the DS agent",
+      "errors": [
+        "not an object"
+      ]
+    },
+    "nothing in it": {
+      "event": {},
+      "errors": [
+        "missing \"at\"",
+        "missing \"about\"",
+        "missing \"by\"",
+        "missing \"kind\""
+      ]
+    },
+    "bad about": {
+      "event": {
+        "at": "2026-09-27T02:14:09",
+        "about": "ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-ds-agent",
+        "did": "view"
+      },
+      "errors": [
+        "about should be a typed reference like \"task:ab12cd\", found \"ab12cd\""
+      ]
+    },
+    "bad at": {
+      "event": {
+        "at": "yesterday",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-ds-agent",
+        "did": "view"
+      },
+      "errors": [
+        "at should be an ISO date or datetime, found \"yesterday\""
+      ]
+    },
+    "unknown kind": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "moved"
+      },
+      "errors": [
+        "kind should be one of call, found \"moved\""
+      ]
+    },
+    "calls nobody": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "did": "view"
+      },
+      "errors": [
+        "a call names nobody it called"
+      ]
+    },
+    "calls itself": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "Plan agent",
+        "did": "work"
+      },
+      "errors": [
+        "an owner cannot call itself in as a specialist"
+      ]
+    },
+    "did nothing named": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-ds-agent"
+      },
+      "errors": [
+        "did should be one of view, work, found null"
+      ]
+    },
+    "long note": {
+      "event": {
+        "at": "2026-09-27",
+        "about": "task:ab12cd",
+        "by": "Plan agent",
+        "kind": "call",
+        "called": "twinkl-ds-agent",
+        "did": "view",
+        "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      },
+      "errors": [
+        "note is longer than 500 characters"
       ]
     }
   }

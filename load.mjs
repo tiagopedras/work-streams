@@ -28,7 +28,8 @@ export function loadInterface (file, wanted) {
 
 export const MANIFEST_NAMES = [
   'WS_CONTRACT', 'WS_CANONICAL', 'WS_WAITING_ON_A_PERSON', 'WS_CONTAINERS', 'WS_WRITERS',
-  'wsValidate', 'wsLabel', 'wsCanonical', 'wsLanes', 'wsWaitingOnAPerson', 'wsOwnsItsFile'
+  'wsValidate', 'wsLabel', 'wsCanonical', 'wsLanes', 'wsWaitingOnAPerson', 'wsOwnsItsFile',
+  'WS_EVENT_KINDS', 'WS_CALL_DID', 'wsValidateEvent'
 ]
 
 export const loadManifest = () => loadInterface('manifest.js', MANIFEST_NAMES)

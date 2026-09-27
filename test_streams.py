@@ -65,5 +65,12 @@ for name, row in FIX["broken"].items():
     check("refuses %s, in the same words" % name,
           manifest.validate(row["manifest"]), row["errors"])
 
+print("\nhistory events")
+check("event kinds", list(manifest.EVENT_KINDS), FIX["eventKinds"])
+check("what a call did", list(manifest.CALL_DID), FIX["callDid"])
+for name, row in FIX["events"].items():
+    check("%s: %s" % (name, "refused, in the same words" if row["errors"] else "accepted"),
+          manifest.validate_event(row["event"]), row["errors"])
+
 print("\n=== %s ===" % ("all good" if not failures else "%d FAILED" % len(failures)))
 sys.exit(1 if failures else 0)

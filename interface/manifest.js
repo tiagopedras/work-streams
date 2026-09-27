@@ -143,3 +143,40 @@ function wsWaitingOnAPerson(m, state){ return WS_WAITING_ON_A_PERSON.includes(st
    command, which is the whole of how one-writer-per-file is kept true rather
    than merely asked for. */
 function wsOwnsItsFile(m){ return ((m.writer || {}).how || {}).kind === 'http-put'; }
+
+/* =========================================================================
+   An item's history
+
+   What happened to one item, one event a line, appended and never rewritten.
+   See "An item's history" in CONTRACT.md. Only one kind today: a call, an
+   owner bringing a specialist in. A specialist never owns an item, so the
+   one thing checked beyond the shape is that `called` is never `by`.
+   ========================================================================= */
+
+const WS_EVENT_KINDS = ['call'];
+/* What a specialist brought in did: gave a view, or did part of the work. */
+const WS_CALL_DID = ['view', 'work'];
+const WS_ABOUT_RE = /^[a-z]+:[0-9a-z]{6}$/;
+const WS_AT_RE = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?)?$/;
+
+/* Everything wrong with one history event, as lines. A reader skips an event
+   that has any, rather than drawing half of it. */
+function wsValidateEvent(ev){
+  const e = [];
+  if (!ev || typeof ev !== 'object' || Array.isArray(ev)) return ['not an object'];
+  for (const key of ['at', 'about', 'by', 'kind'])
+    if (!ev[key]) e.push(`missing "${key}"`);
+  if (ev.at && !WS_AT_RE.test(String(ev.at))) e.push(`at should be an ISO date or datetime, found ${JSON.stringify(ev.at)}`);
+  if (ev.about && !WS_ABOUT_RE.test(String(ev.about)))
+    e.push(`about should be a typed reference like "task:ab12cd", found ${JSON.stringify(ev.about)}`);
+  if (ev.kind && !WS_EVENT_KINDS.includes(ev.kind))
+    e.push(`kind should be one of ${WS_EVENT_KINDS.join(', ')}, found ${JSON.stringify(ev.kind)}`);
+  if (ev.kind === 'call'){
+    if (!ev.called) e.push('a call names nobody it called');
+    else if (ev.called === ev.by) e.push('an owner cannot call itself in as a specialist');
+    if (!WS_CALL_DID.includes(ev.did))
+      e.push(`did should be one of ${WS_CALL_DID.join(', ')}, found ${JSON.stringify(ev.did ?? null)}`);
+  }
+  if (ev.note != null && String(ev.note).length > 500) e.push('note is longer than 500 characters');
+  return e;
+}
