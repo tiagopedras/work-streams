@@ -28,8 +28,8 @@ const read = (key, file) => existsSync(file)
   ? JSON.parse(readFileSync(file, 'utf8'))
   : (before[key] || {}).manifest
 const real = {
-  tasks: read('tasks', '/Users/tiagopedras/Code/to-dos/stream.json'),
-  plans: read('plans', '/Users/tiagopedras/Code/to-dos/agents/plan-agent/stream.json')
+  tasks: read('tasks', '/Users/tiagopedras/Code/bench/stream.json'),
+  plans: read('plans', '/Users/tiagopedras/Code/bench/agents/plan-agent/stream.json')
 }
 
 /* Manifests that are wrong on purpose. Each names one mistake somebody will
