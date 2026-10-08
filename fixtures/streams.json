@@ -39,7 +39,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -173,6 +173,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -511,7 +515,7 @@
       "manifest": {
         "contract": "0.9",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -645,6 +649,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -669,7 +677,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -803,6 +811,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -827,7 +839,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "sqlite",
@@ -961,6 +973,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -985,7 +1001,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file"
@@ -1118,6 +1134,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -1142,7 +1162,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -1277,6 +1297,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -1301,7 +1325,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -1435,6 +1459,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -1460,7 +1488,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -1591,6 +1619,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -1617,7 +1649,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -1751,6 +1783,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -1772,7 +1808,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -1906,6 +1942,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "x",
           "how": {
@@ -1927,7 +1967,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -2061,6 +2101,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -2082,7 +2126,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -2217,6 +2261,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -2241,7 +2289,7 @@
       "manifest": {
         "contract": "1.0",
         "id": "tasks",
-        "name": "My to-do list",
+        "name": "Bench",
         "blurb": "the master list, one file, one writer",
         "container": {
           "kind": "list-file",
@@ -2369,6 +2417,10 @@
             "own": true
           }
         ],
+        "history": {
+          "path": "data/<dataset>/history.jsonl",
+          "note": "which specialist an owning agent called in on a task; see core/history.py"
+        },
         "writer": {
           "who": "board",
           "how": {
@@ -2397,7 +2449,7 @@
         "about": "task:ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-people-agent",
+        "called": "team-agent",
         "bucket": "people",
         "did": "work"
       },
@@ -2409,7 +2461,7 @@
         "about": "task:ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-ds-agent",
+        "called": "design-agent",
         "did": "view",
         "note": "crosses into DS"
       },
@@ -2436,7 +2488,7 @@
         "about": "ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-ds-agent",
+        "called": "design-agent",
         "did": "view"
       },
       "errors": [
@@ -2449,7 +2501,7 @@
         "about": "task:ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-ds-agent",
+        "called": "design-agent",
         "did": "view"
       },
       "errors": [
@@ -2498,7 +2550,7 @@
         "about": "task:ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-ds-agent"
+        "called": "design-agent"
       },
       "errors": [
         "did should be one of view, work, found null"
@@ -2510,7 +2562,7 @@
         "about": "task:ab12cd",
         "by": "Plan agent",
         "kind": "call",
-        "called": "twinkl-ds-agent",
+        "called": "design-agent",
         "did": "view",
         "note": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
       },

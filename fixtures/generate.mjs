@@ -4,7 +4,7 @@
  * The table is never hand-written. It holds this code's own answers, and both
  * suites read it, so a rule changed in one language and forgotten in the other
  * shows up as a failure in the other rather than as two programs quietly
- * disagreeing. Same arrangement as to-dos/core/fixtures.
+ * disagreeing. Same arrangement as bench/core/fixtures.
  *
  *   node fixtures/generate.mjs
  *
@@ -75,23 +75,23 @@ const resolve = m => ({
    make, and pins the words it gets back. */
 const events = {
   'a planner called in':   { at: '2026-09-27T02:14:09', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-people-agent', bucket: 'people', did: 'work' },
+                             called: 'team-agent', bucket: 'people', did: 'work' },
   'a view from elsewhere': { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-ds-agent', did: 'view', note: 'crosses into DS' },
+                             called: 'design-agent', did: 'view', note: 'crosses into DS' },
   'not an object':         'Plan agent asked the DS agent',
   'nothing in it':         {},
   'bad about':             { at: '2026-09-27T02:14:09', about: 'ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-ds-agent', did: 'view' },
+                             called: 'design-agent', did: 'view' },
   'bad at':                { at: 'yesterday', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-ds-agent', did: 'view' },
+                             called: 'design-agent', did: 'view' },
   'unknown kind':          { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'moved' },
   'calls nobody':          { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'call', did: 'view' },
   'calls itself':          { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
                              called: 'Plan agent', did: 'work' },
   'did nothing named':     { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-ds-agent' },
+                             called: 'design-agent' },
   'long note':             { at: '2026-09-27', about: 'task:ab12cd', by: 'Plan agent', kind: 'call',
-                             called: 'twinkl-ds-agent', did: 'view', note: 'x'.repeat(501) }
+                             called: 'design-agent', did: 'view', note: 'x'.repeat(501) }
 }
 
 const out = {

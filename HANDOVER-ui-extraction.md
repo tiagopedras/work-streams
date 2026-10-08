@@ -69,7 +69,7 @@ confirmation. Four guards, all four, not any one:
   it back immediately at the end, and read the file back to check it stuck.
 - Work with the tab locked: `load(text, 'name.md', {})` then `state.locked =
   true` before anything else. A locked tab cannot save.
-- No board tab open on `twinkl` while it runs.
+- No board tab open on `work` while it runs.
 - Take a fresh backup first, the way `~/Backups/to-dos/2026-09-11-pre-work-streams/`
   was taken. Its README is the shape to copy.
 
